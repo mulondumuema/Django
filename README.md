@@ -148,3 +148,6 @@ c) creating models
 
 a model contains the essential fields and behaviours of the data you are storing
 django follows the **dry principle:** the goal is to define your data model in one place and automatically derive things from it.
+
+
+To use the app here, clone the repo, cd into the mysite directory, activate the environment with django then you can run the development server. Have fun! 
