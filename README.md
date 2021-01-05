@@ -136,4 +136,15 @@ a) writing the first veiw
 
 in django a view is a python function that takes a web request and returns a web response.
 
-follow the [tutorial](https://docs.djangoproject.com/en/3.1/intro/tutorial01/)
+follow the [tutorial](https://docs.djangoproject.com/en/3.1/intro/tutorial01/) to create the view
+
+b) database setup
+
+some applications in django (defined in INSTALLED_APPS section in settings.py) make use of atleast one databse table though so we need to create the tables in the database before we can use them. To do that, run:
+
+`$ python manage.py migrate`
+
+c) creating models
+
+a model contains the essential fields and behaviours of the data you are storing
+django follows the **dry principle:** the goal is to define your data model in one place and automatically derive things from it.
