@@ -32,6 +32,10 @@ b). Create a virtual environment
 
 The most convenient way to install Django is by using a virtual environment, which is a feature built into Python that allows you to keep a separate directory of installed packages for each of your projects so that they don’t interfere with each other.
 
+If the python3-venv package is not installed install it with the following command.
+
+`$ sudo apt-get install python3-venv`
+
 It’s a good idea to keep all your virtual environments in one place, for example in **.virtualenvs/** in your home directory.
 
 Create a new virtual environment by running:
