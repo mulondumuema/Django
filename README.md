@@ -14,13 +14,13 @@ To check python3 version installed, run on the terminal:
 
 If not installed, you can install python 3.6 with:
 
-`$ sudo apt-get update
- $ sudo apt-get install python3.6`
+`$ sudo apt-get update`
+`$ sudo apt-get install python3.6`
  
 To install pip for python3. run:
 
-`$ sudo apt update
- $ sudo apt install python3-pip`
+`$ sudo apt update`
+`$ sudo apt install python3-pip`
  
 To check pip version:
 
