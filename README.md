@@ -183,6 +183,7 @@ start a django project
 
 # About Django
 
+at its core django is pyhton framework  for taking incoming HTTP requests and returning HTTP responses. What happens in between is up to you.
 
 ## Building a simple django app
 
@@ -206,4 +207,62 @@ django associates views with their URL by pairing a regular expression to match 
 
 ## the settings
 
-django settings detail evrything from database and cache connections to internationalix=zation features and static and uploaded resources 
+django settings detail everything from database and cache connections to internationalization features and static and uploaded resources
+
+the full hello.py looks like this:
+
+```
+import sys
+from django.conf import settings
+settings.configure(
+ DEBUG=True,
+ SECRET_KEY='thisisthesecretkey',
+ ROOT_URLCONF=__name__,
+ MIDDLEWARE_CLASSES=(
+ 'django.middleware.common.CommonMiddleware',
+ 'django.middleware.csrf.CsrfViewMiddleware',
+ 'django.middleware.clickjacking.XFrameOptionsMiddleware',
+ ),
+)
+from django.conf.urls import url
+from django.http import HttpResponse
+def index(request):
+ return HttpResponse('Hello World')
+urlpatterns = (
+ url(r'^$', index),
+)
+if __name__ == "__main__":
+ from django.core.management import execute_from_command_line
+ execute_from_command_line(sys.argv)
+```
+you can start the example in the command line:
+
+``` python hello.py runserver ```
+
+Note: You should be in a virtual environment where django is installed.
+
+## improvements
+
+the example shows some fundamental pieces of the django framework: writing views, creating settings and rum=nning management commands.
+
+django also provides additional utilities for common tasks invoved in handling HTTP requests, such as rendering HTML, parsing form data, and persisting session state.
+
+it is important to understand how these features can be used in your application in a lightweight manner. By doing so you gain a better understanding of the overall django the overall django framework and true capabilities.
+
+## wsgi  application
+
+currently our "Hello World" project runs through the runserver command. This is a simple server based on the socket server in the standard library. It has helpful utilities for local development such as auto-code reloading. While convenient for local development, runserver is not appropriate for production deployment security.
+
+The Web Server Gateway Interface (WSGI) is the specification for how web servers communicate with application frameworks like django
+
+There are various web servers that speak WSGI like Apache, Gunicorn, CherryPy, etc.
+
+each of these servers needs a properly defines WSGI application to be used. Django has an easy interface for creating this application through *get_wsgi_application*
+
+this would normally be in the *wsgi.py* file created by the startproject command.
+
+for this case therefore will use gunicorn
+
+## reusable template
+
+it isn't difficult to transform this file into a reusable template to start future projects ucing the same base layout
