@@ -181,3 +181,29 @@ start a django project
 
 ```django-admin startproject tenants_trial```
 
+# About Django
+
+
+## Building a simple django app
+
+we will start by using a single *hello.py* file
+
+this file will contain all the code needed to run our django project
+
+in order to have a full working project we will need to create a view to serve the root URL and the necessary settings to configure the Django environment.
+
+## creating the view
+
+Django is referres to as a *model-template-view* (MTV) framework.
+
+the view portion inspects the incoming HTTP request and queries, or constructs the necessary data to send to the presentation layer
+
+## the URL patterns
+
+in order to tie our view into the site's structure, we will need to associate it with a URL pattern
+
+django associates views with their URL by pairing a regular expression to match the URL and any callable argument to the view
+
+## the settings
+
+django settings detail evrything from database and cache connections to internationalix=zation features and static and uploaded resources 
