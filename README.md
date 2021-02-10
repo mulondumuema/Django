@@ -157,3 +157,27 @@ django follows the **dry principle:** the goal is to define your data model in o
 
 
 To use the app here, clone the repo, cd into the mysite directory, activate the environment with django then you can run the development server. Have fun! 
+
+
+# Or
+
+create the virtual environment:
+
+cd to your directory
+
+create tenant_env virtual environment
+
+```virtualenv -p python3 tenant_env```
+
+activate the environment
+
+```source tenant_env/bin/activate```
+
+install required packages
+
+```pip3 install django django-tenants psycopg2-binary pillow```
+
+start a django project
+
+```django-admin startproject tenants_trial```
+
