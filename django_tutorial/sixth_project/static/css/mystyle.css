@@ -1,0 +1,19 @@
+h1{
+    color: white;
+    background-color: black;
+    text-align: center;
+}
+
+body{
+    background-color: red;
+}
+
+img{
+    width: 300px;
+    height: 300px;
+    border: 2px solid white;
+}
+
+button{
+    padding: 3px;
+}
