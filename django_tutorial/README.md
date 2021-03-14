@@ -298,3 +298,215 @@ on executing the above command we need to enter username, password and email
 open browser window and use the following command to access admin interface
 
 http://localhost:8000/admin
+
+
+Form handling in Django
+
+common commands:
+django-admin startproject testproj2
+cd testproj2
+python manage.py testapp1
+
+
+after making changes to a modal.py (like creating a modal class) run:
+
+python manage.py makemigrations
+python manage.py migrate
+
+
+
+
+will create:
+
+login.html(with the form) => urls.py => views.py
+
+The django {% csrf_token %} is for security 
+
+
+API: provides Inter-operability betwwen software applications
+
+common language: http
+common message format: json
+
+xml: complex,high bandwidth, heavy weight, more secure
+json:lightweight, easy development, human readable, less secured
+
+all restful webservices use javascript
+
+
+CRUD Operations using Web API without REST Framework
+CRUD : 
+C : Create
+R : Retrieving
+U : Updating
+D : Delete
+
+data needs to be in json format so that other applications can communicate with it
+
+there is a python inbuilt module to convert python to json and json to python
+
+so we will need to know these specific modules
+
+Response Status codes
+100-199: Info
+200-299: Success
+300-399: Redirection
+400-499: Client Error
+500-599: Server Error
+
+API :
+Types of webServices:
+1. SOAP Based webservice : XML
+2. Restful WebService : JSON(Java Script Object Notation)
+
+
+command line http clients:
+- curl
+- httpie
+
+the common message format is JSON such that a django application can communicate with a java application or a dotnet application
+
+The JSON module has two main functions:
+1. dumps()-convert python dictionary to JSON
+2. loads() -converts json to python dictionary
+
+
+Django Rest API
+
+The Rest API is commonly used by most applications
+
+need for django REST API
+- powerful
+
+Django app + REST API - small technology, easy to learn
+
+Common technologies related to API:
+API : Applicaion Progamming Interface - e.g enduser wants to acccess an application, they will use GUI(Grahical User Interface). Similarly if we have a java application wanting to access/communicate a django application we will use an API. Even a mobile application, dotnet app, can communicate with another application using API
+
+Main advantage of API is inter-operability
+
+Web API -An API for web-based applications. The web API can be created using any language.
+e.g a movie booking application, we couldpay with phoneapp, googleplay credit card, debit card, etc. these payment options aredifferent but they communicate. They are APIs
+
+REST- Representational State Transfer. An architecture that provides guidelines to create APIs easily
+
+REST API - applications that follow the REST framework to create APIs 
+
+Django REST Framework -toolkit
+provides tools that it becomes easy to develop REST APIs in django
+
+there is one standard protocal to access data sources/ content from a server or over internet i.e http 
+http - hypertext transfer protocal
+https - hypertext transfer protocal secure - used for domains where more security is required
+
+Common messaging format used:
+1. XML - Extensible Markup Language - used to be famous
+2. JSON - Java Script Object Notation - now commonly used.It is easy to work with
+
+common language used between software applications:- http. will need a browser software that will send a http request to the other software
+
+methods available for http requests:
+- GET
+- POST
+- DELETE
+- PUT
+- PATCH
+
+Common message format: XML/ JSON
+
+Types of Webservices(API)
+We have:
+- service provider - provides services
+- service consumer- consumes services
+
+types of webservices
+1. SOAP based 
+2. Restful
+
+SOAP( Simple Object Access Protocal)
+uses XML. Platform independent, high bandwidth, heavy weight, complex
+e.g employeees.xml:
+<employees>
+  <employee>
+    <employeeId>1</employeeId>
+    <employeeName>Prudhvi</employeeName>
+    <employeeSalary>1300000</employeeSalary>
+  </employee>
+</employees>
+
+XML can storethe data and describe the data and highly secure but it is very complex, slow
+
+examples of web services built on this:
+- Google:SOAP
+- Yahoo : REST
+- Amazon, ebay, etc : both (REST + SOAP)
+
+
+Restful WebService:
+uses JSON message format
+advantages of JSON:
+- very easy
+- human readable
+- development easy
+- less bandwidth
+- lightweight
+
+disadvantages
+- limited data
+- less secure
+
+different http methods:
+1. GET : get one or more resources from server
+2. POST : creating a resource in server.Very secure. e.g a user registration
+3. PUT :  update a resource
+4. PATCH :  partial update
+5. DELETE : delete a resource
+
+
+resource is a file or program application
+
+
+comparrison of database operations and http methods:
+CRUD Operations
+C: Create new record in database table: in http will use POST 
+R: Retrieve records: GET
+U: Update records : PUT/PATCH
+D: Delete records : DELETE
+
+Database API
+Making Queries
+once youhave created data models,Django automatically gives you a database-abstraction API that lets you create, retieve,update and delete objects
+
+Important Methods
+- all()
+- save()
+- delete()
+- get()
+- count()
+- filter() : [ contains, icontains, istartwith, endswith, iendswith, exact, gt,gte,lte,lt ]
+
+
+Model : Data :
+- to create a table using sql:
+
+create table employee (id int primarykey auto_increment, ename varchar(50), esalary real)
+
+in django; models.py
+
+class Employee(models.Model):
+    ename=models.CharField(max_length=60)
+    esalary=models.FloatField()
+
+admin.py => to register the model
+admin.site.register(Employee)
+
+then run:
+python manage.py makemigrations
+
+to check if the migration has been made run:
+python manage.py sqlmigrate app_name id
+
+then run the following to migrate the tables and toregister the apps in defined in settings.py
+python manage.py migrate
+
+then will add data to the tables 
